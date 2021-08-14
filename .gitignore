@@ -1,0 +1,13 @@
+flask/
+*.pyc
+dev
+node_modules
+app/build
+yarn.lock
+yarn-error.log
+*.psd
+env/
+env__/
+.vscode/
+app/db.sqlite3
+.DS_Store

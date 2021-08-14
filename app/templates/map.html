@@ -1,0 +1,34 @@
+
+{% extends 'layouts/base.html' %}
+
+
+{% block title %} Map {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %} 
+
+{% endblock stylesheets %}
+
+
+{% block content%} 
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- <meta http-equiv="refresh" content="5"> -->
+        <title>TESTING</title>
+        <div class="form-check form-switch ps-0">
+            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark_data" onclick="">
+          </div>
+        {{crime_map.js}}
+    </head>
+    <body>
+        {{crime_map.html}}
+
+
+    </body>
+</html>
+
+{% endblock content %}

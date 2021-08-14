@@ -1,0 +1,450 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Reports {% endblock title %}
+
+
+{% block content %}
+
+
+
+
+<div class="input-group">
+  <form class="input-group" action="{{url_for('search')}}" >
+      <input type="text" class="form-control border-1 ps-1" placeholder="Search.." name="q"" id="search_form">
+      <input type="submit" class="btn bg-gradient-primary my-0 me-0" onfocus="this.placeholder = '' " value="submit" onclick="convert();"/>
+  </form>
+</div>
+<br>
+
+
+{% for report in search_reports.items if search_reports.items%}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+        <div class="card-header pb-0">
+            <h6>Call #{{report.call_number}} </h6>
+        </div>
+        <div class="card-body px-5 pt-5 pb-5">
+            <div class="table-responsive p-0">
+            <table class="table align-items-center mb-4"> 
+                <!-- #NOTE This is where we change the size of tables -->
+                <thead>
+                <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Date / Time</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20 ps-2">Call method</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Reason</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Action taken</th>
+                    <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-20 ">Location</th> -->
+                    <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Unit(s)</th> -->
+                    <th class="text-secondary opacity-7"> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+
+
+
+                        <div class="d-flex px-1 py-1">
+                            <div>
+                              <img src="/static/assets/img/small-logos/clock.svg" class="avatar avatar-sm me-2">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{ report.date }} | {{report.time}}</h6>
+                            </div>
+
+                    </div>
+                    </td>
+                    <td>
+                        {% if report.call == "Phone"%}
+
+                            <div class="d-flex px-1 py-1">
+                                <div>
+                                <img src="/static/assets/img/small-logos/phone-call.svg" class="avatar avatar-sm me-2">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                                </div>
+
+                        {% elif report.call == "Alarm"%}
+
+                            <div class="d-flex px-1 py-1">
+                                <div>
+                                <img src="/static/assets/img/small-logos/alert-triangle.svg" class="avatar avatar-sm me-2">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                                </div>
+
+                
+                        {% elif report.call == "Alarm"%}
+
+                            <div class="d-flex px-1 py-1">
+                                <div>
+                                <img src="/static/assets/img/small-logos/alert-triangle.svg" class="avatar avatar-sm me-2">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                                </div>
+
+                        {% elif report.call == "911"%}
+
+                        <div class="d-flex px-1 py-1">
+                            <div>
+                            <img src="/static/assets/img/small-logos/shield.svg" class="avatar avatar-sm me-2">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                            </div>
+
+
+
+                        {% elif report.call == "Cellular"%}
+
+                            <div class="d-flex px-1 py-1">
+                                <div>
+                                <img src="/static/assets/img/small-logos/smartphone.svg" class="avatar avatar-sm me-2">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                                </div>
+
+
+
+
+                        {% elif report.call == "Initiated"%}
+
+                            <div class="d-flex px-1 py-1">
+                                <div>
+                                <img src="/static/assets/img/small-logos/alert-octagon.svg" class="avatar avatar-sm me-2">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                                </div>
+
+                                
+
+                        {% elif report.call == "Radio"%}
+
+                            <div class="d-flex px-2 py-1">
+                                <div>
+                                <img src="/static/assets/img/small-logos/radio.svg" class="avatar avatar-sm me-2">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                                </div>
+
+                        {% elif report.call == "Walk-In"%}
+
+                            <div class="d-flex px-2 py-1">
+                                <div>
+                                <img src="/static/assets/img/small-logos/user.svg" class="avatar avatar-sm me-2">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                                </div>
+
+
+                        {% else %}
+                                
+                            <div class="d-flex px-2 py-1">
+                                <div>
+                                <img src="/static/assets/img/small-logos/help-circle.svg" class="avatar avatar-sm me-2">
+                                </div>
+                                <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ report.call }}</h6>
+                                </div>
+
+                            
+                        {% endif %}
+
+                    </td>
+
+                    <!-- False Alarm|Services Rendered|No Action Required|Citation|Verbal Warning|Peace Restored|Could Not Locate|Transported to Hospital|Report Taken|Investigated|Taken/Referred to Other Agency|Vehicle Towed|Extinguished|Arrest|Unfounded|Founded' -->
+
+                    {% if report.action_taken == "Transported to Hospital" or report.action_taken == "Arrest" or report.action_taken == "Vehicle Towed" or report.action_taken == "Citation" or report.action_taken == "Could Not Locate" or report.action == "Unfounded" or report.action_taken == "ARREST" %}
+
+
+                        <td class="mb-0 text-center">
+                        <h6 class="mb-0 text-sm">{{report.reason}}</h6> 
+                        </td>
+                        
+
+                        <td class="align-middle text-center">
+                        <span class="badge badge-sm bg-gradient-danger">{{ report.action_taken }} </span>
+                        </td>
+                        <td class="align-middle">
+                        </td>
+
+
+                    {% elif report.action_taken == "Verbal Warning" or report.action_taken == "Founded" %}
+
+
+                    <td class="mb-0 text-center">
+                        <h6 class="mb-0 text-sm">{{report.reason}}</h6> 
+                        </td>
+
+
+                        <td class="align-middle text-center">
+                        <span class="badge badge-sm bg-gradient-warning">{{ report.action_taken }}</span>
+                        </td>
+                        <td class="align-middle">
+
+                        </td>
+
+
+                    {% else %}
+
+
+                    <td class="mb-0 text-center">
+                        <h6 class="mb-0 text-sm">{{report.reason}}</h6> 
+                        </td>
+
+
+                        <td class="align-middle text-center">
+                        <span class="badge badge-sm bg-gradient-success">{{ report.action_taken }}</span>
+                        </td>
+                        <td class="align-center">
+                
+                        </td>
+
+                    
+
+
+
+                     {% endif %}
+
+
+                     <!-- <table class="table align-items-center mb-0"> -->
+
+                      {% if report.location %}
+
+                      <table class="table align-items-center mb-0">
+
+                        <thead>
+                          <tr>
+
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Location</th>
+
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="d-flex px-1 py-1">
+                      
+                                <div class="d-flex flex-column justify-content-center">
+                                  <h6 class="text-sm">{{report.location}}</h6>
+                                </div>
+                              </div>
+
+                          </tbody>
+                          
+                    </thead>
+
+                      {% endif %}
+
+
+                      {% if report.units %}
+
+                          <table class="table align-items-center mb-0">
+
+                            <thead>
+                              <tr>
+
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Unit(s) Responded</th>
+
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <div class="d-flex px-2 py-1">
+                          
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="text-sm">{{report.units}}</h6>
+                                    </div>
+                                  </div>
+
+                              </tbody>
+                              
+                        </thead>
+
+                          {% endif %}
+
+                          {% if report.primary_id %}
+
+                          <table class="table align-items-center mb-0">
+
+                            <thead>
+                              <tr>
+
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Responding Officer(s)</th>
+
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <div class="d-flex px-2 py-1">
+                          
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="text-sm">{{report.primary_id}} <br></h6>
+                                    </div>
+                                  </div>
+
+                              </tbody>
+                              
+                        </thead>
+
+                          {% endif %}
+
+
+
+
+                          {% if report.vehicle %}
+                          <table class="table align-items-center mb-0">
+
+                            <thead>
+                              <tr>
+
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Vehicle Info</th>
+
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <div class="d-flex px-2 py-1">
+                          
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="mb-0 text-sm">{{report.vehicle}}</h6>
+                                    </div>
+                                  </div>
+
+                              </tbody>
+                              
+                        </thead>
+                          {% endif %}
+
+
+                          {% if report.criminal_name %}
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20"></th>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <div class="d-flex px-2 py-1">
+                          
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <p class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Criminal Name</p>
+                                      <h6 class="mb-0 text-sm">{{report.criminal_name}}</h6>
+                                      <br>
+                                      <p class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Criminal Age</p>
+                                      <h6 class="mb-0 text-sm">{{report.criminal_age}}</h6>
+                                      <br>
+                                      <p class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Criminal Address</p>
+                                      <h6 class="mb-0 text-sm">{{report.criminal_address}}</h6>
+                                      <br>
+                                      <p class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Criminal Charges</p>
+                                      <h6 class="mb-0 text-sm">{{report.criminal_charges}}</h6>
+
+                                    </div>
+                                  </div>
+                          {% endif %}
+<!--                                     
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-20">Action taken</th> -->
+                          <th class="text-secondary opacity-7"></th>
+                        </tr>
+                      </thead>
+
+
+                      </table>
+
+            </tr>
+   
+            </tbody>
+        </table>
+        
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+<!-- {{report}} -->
+{% else %}
+    
+  <div class="card-header pb-10">
+    <!-- <b>No Results Found</b>  -->
+    <h4>No results for <b>"{{searchword}}"</b></h4>
+
+    <br>
+    <h6> <u>Search Help</u></h6>
+
+    <h6>• Check search for typos </h6>
+
+    <h6>• Use more generic search terms</h6>
+
+    <h6>• If you're looking up an address, try generalizing your search by removing the address number and searching the street name</h6>
+
+    <h6>• Submit <a href="mailto:jmcginni04@northshore.edu" style="color: rgb(32, 122, 200);">feedback</a> or request a change </h6>
+
+    <p>Please keep in mind that reports only date back to 2019, and may exclude certain sensitive or identifying information.</p>
+    
+  </div>
+
+{% endfor %}
+
+{% for page_num in search_reports.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+
+{% if page_num %}
+
+  {% if search_reports.page == page_num %}
+    <a class="btn bg-gradient-primary my-1 me-2" href="{{ url_for('search', q=searchword, page=page_num) }}">{{ page_num }}</a>
+  {% else %}
+    <a class="btn bg-gradient-primary my-1 me-2" href="{{ url_for('search', q=searchword,page=page_num) }}">{{ page_num }}</a>
+  {% endif %}
+{% else %}
+ ...   
+{% endif %}
+
+{% endfor %}
+
+
+
+
+{% endblock content %}
+
+
+{% block javascripts %}
+
+<script type="text/javascript">
+
+  function convert() {
+      var str;
+      var search_result=document.getElementById("search_form");
+      str = search_result.value;
+      search_result.value=str.toUpperCase();
+
+      // console.log("search result val", str);
+      // console.log("search result last line", search_result.value);
+
+      if (search_result.value.endsWith("STREET") || search_result.value.endsWith("ROAD") || search_result.value.endsWith("AVENUE") || search_result.value.endsWith("COURT") || search_result.value.endsWith("CIRCLE") || search_result.value.endsWith("DRIVE") || search_result.value.endsWith("LANE") || search_result.value.endsWith("BOULEVARD")){
+          // console.log("AHDLWKJHFLKWFJ");
+          // console.log("search result val", str);
+          // console.log("srch val last line", srch.value);
+          // console.log(typeof srch.value);
+          search_result.value = search_result.value.replace("STREET", "ST").replace("ROAD", "RD").replace("AVENUE", "AVE").replace("COURT", "CT").replace("CIRCLE", "CIR").replace("DRIVE", "DR").replace("LANE","LN").replace("BOULEVARD", "BLVD"); // use regex
+
+        }
+
+        else {
+          console.log("ELSE - result");
+        }
+
+      // if (search_result.value.endsWith("STREET")) {
+      //   search_result.value = search_result.value.replace("STREET", "ST");
+      // }
+
+      //   else {
+      //     console.log("ELSE");
+      //   }
+  }
+
+
+</script>
+
+{% endblock javascripts%}

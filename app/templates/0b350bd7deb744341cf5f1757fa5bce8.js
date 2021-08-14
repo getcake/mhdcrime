@@ -1,0 +1,3 @@
+
+let mode;mode=localStorage.getItem('mode');if(mode=='dark'){document.getElementById("stylesheet").setAttribute('href','/static/assets/css/soft-ui-dashboard-darkmode.css');}else{document.getElementById("stylesheet").setAttribute('href','/static/assets/css/soft-ui-dashboard.css?v=1.0.0');}
+function toggleThemes(){var stylesheet=document.getElementById("stylesheet");if(stylesheet.getAttribute('href')=="/static/assets/css/soft-ui-dashboard.css?v=1.0.0"){stylesheet.setAttribute('href','/static/assets/css/soft-ui-dashboard-darkmode.css');localStorage.setItem('mode','dark');}else{;stylesheet.setAttribute('href','/static/assets/css/soft-ui-dashboard.css?v=1.0.0');localStorage.setItem('mode','light');}}
