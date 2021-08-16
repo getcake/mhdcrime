@@ -23,10 +23,10 @@ pip install -r requirements.txt
 ~~~
 
 
-- This project requires a modified version of flask-googlemaps found [here](https://github.com/getcake/Flask-GoogleMaps)
+- This project requires a modified version of flask-googlemaps found [here](https://github.com/getcake/Flask-GoogleMaps_mhdcrime)
     - 
     ~~~
-        git clone https://github.com/getcake/Flask-GoogleMaps
+        git clone https://github.com/getcake/Flask-GoogleMaps_mhdcrime
         pip install Flask-GoogleMaps/
     ~~~
 
