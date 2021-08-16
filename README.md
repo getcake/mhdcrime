@@ -23,11 +23,11 @@ pip install -r requirements.txt
 ~~~
 
 
-- This project requires a modified version of flask-googlemaps found [here](https://github.com/getcake/Flask-GoogleMaps_mhdcrime)
+- This project requires a modified version of flask-googlemaps found [here](https://github.com/getcake/Flask-GoogleMaps-mhdcrime)
     - 
     ~~~
-        git clone https://github.com/getcake/Flask-GoogleMaps_mhdcrime
-        pip install Flask-GoogleMaps_mhdcrime/
+        git clone https://github.com/getcake/Flask-GoogleMaps-mhdcrime
+        pip install Flask-GoogleMaps-mhdcrime/
     ~~~
 
 - In order to create and populate the databse, uncomment the scheduler code found in run.py 
