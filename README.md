@@ -11,7 +11,7 @@ Each report is then added to a database with a geocoded location and plotted ont
 
 ## Features 
 
-- A comprehensive map of all reported incidents in the town of Marblehead dating back to 2019, comlete with search functionality and filters. 
+- A comprehensive map of all reported incidents in the town of Marblehead dating back to 2019, complete with search functionality and filters. 
 - A live community map with the ability to create, edit, and remove user provided reports, complete with local police & fire dispatch feed
 
 ## Setup 
